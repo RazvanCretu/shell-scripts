@@ -58,3 +58,4 @@ fi
 curl -sL https://deb.nodesource.com/setup_20.x -o $usr/nodesource_setup.sh
 bash $usr/nodesource_setup.sh
 apt install nodejs -y
+rm -rf $usr/nodesource_setup.sh
