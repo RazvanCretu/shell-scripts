@@ -64,3 +64,11 @@ curl -sL https://deb.nodesource.com/setup_20.x -o $usr/nodesource_setup.sh
 bash $usr/nodesource_setup.sh
 apt install nodejs -y
 rm -rf $usr/nodesource_setup.sh
+
+mkdir $usr/.npm-global
+chown -R 1000:1000 $usr/.npm-global
+chmod 755 $usr/.npm-global
+
+su - ubuntu -c "npm config set prefix $usr/.npm-global"
+
+printf '\n\nexport PATH=~/.npm-global/bin:$PATH' >> $usr/.bashrc
