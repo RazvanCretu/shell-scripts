@@ -29,6 +29,11 @@ su - ubuntu -c "$usr/.miniconda3/bin/conda init bash"
 chown -R 1000:1000 $usr/.miniconda3
 chmod 755 $usr/.miniconda3
 
+su - ubuntu -c "source $usr/.bashrc && $usr/.miniconda3/bin/conda create -n data-engineer --no-default-packages python=3.11 pandas boto3 -y"
+curl -o $usr/instance_scheduler_cli-1.5.3-py3-none-any.whl https://s3.amazonaws.com/solutions-reference/instance-scheduler-on-aws/latest/instance_scheduler_cli-1.5.3-py3-none-any.whl
+su - ubuntu -c "$usr/.miniconda3/envs/data-engineer/bin/pip install $usr/instance_scheduler_cli-1.5.3-py3-none-any.whl"
+rm -rf $usr/instance_scheduler_cli-1.5.3-py3-none-any.whl
+
 ##### S3FS #####
 
 mkdir $usr/data
