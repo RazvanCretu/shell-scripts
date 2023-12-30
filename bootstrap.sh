@@ -14,7 +14,7 @@ apt install git -y
 
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "$usr/awscliv2.zip"
 unzip $usr/awscliv2.zip
-`$usr/aws/install`
+"$usr/aws/install"
 rm -rf $usr/aws $usr/awscliv2.zip
 
 ##### CONDA #####
