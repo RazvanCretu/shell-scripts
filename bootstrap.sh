@@ -72,3 +72,5 @@ chmod 755 $usr/.npm-global
 su - ubuntu -c "npm config set prefix $usr/.npm-global"
 
 printf '\n\nexport PATH=~/.npm-global/bin:$PATH' >> $usr/.bashrc
+
+su - ubuntu -c "npm install -g npm@10.2.5 pm2"
