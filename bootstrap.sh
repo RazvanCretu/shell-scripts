@@ -66,7 +66,7 @@ chmod 755 $usr/data
 if grep -q s3fs /etc/fstab; then :
         echo "s3fs initialized."
     else
-        echo "s3fs#general-cr3tu:/master /home/ubuntu/data fuse _netdev,allow_other,iam_role=auto,uid=1000,gid=1000  0  0" >> /etc/fstab
+        echo "s3fs#general /home/ubuntu/data fuse _netdev,allow_other,iam_role=auto,uid=1000,gid=1000  0  0" >> /etc/fstab
         mount -a
 fi
 
