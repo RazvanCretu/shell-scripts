@@ -7,20 +7,7 @@ usr=/home/ubuntu
 add-apt-repository ppa:git-core/ppa -y # required for latest github releases
 apt update -y
 apt upgrade -y
-apt install unzip git mysql-server expect -y
-
-systemctl start mysql.service
-
-# Make sure that NOBODY can access the server without a password
-mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'admin';"
-# Kill the anonymous users
-mysql -e "DROP USER ''@'localhost'"
-# Because our hostname varies we'll use some Bash magic here.
-mysql -e "DROP USER ''@'$(hostname)'"
-# Kill off the demo database
-mysql -e "DROP DATABASE test"
-# Make our changes take effect
-mysql -e "FLUSH PRIVILEGES"
+apt install unzip git mysql-client expect -y
 
 ##### AWS #####
 
